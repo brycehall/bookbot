@@ -22,3 +22,28 @@ def get_num_char(filepath):
                 char_dict[character] = 1
 
     return char_dict
+
+def sort_dict(dictionary):
+
+    def sort_on(items):
+        return items["num"]
+
+    dict_list = []
+    sorted_dict = {}
+    i = 0
+
+    for char in dictionary:
+        num = dictionary[char]
+        dict_list.append({"char": char , "num": num})
+
+    dict_list.sort(reverse=True, key=sort_on)
+
+    while i < len(dict_list):
+        for item in dict_list[i]:
+            letter = dict_list[i]['char']
+            count = dict_list[i]['num']
+            if letter.isalpha():
+                sorted_dict[letter] = count
+            i += 1
+
+    return sorted_dict
